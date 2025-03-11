@@ -28,16 +28,16 @@ env:
   REGION_ID: ap-southeast-5
   REGISTRY: registry-intl.ap-southeast-5.aliyuncs.com
   NAMESPACE: node-topostgre
-  IMAGE: node-topostgre:latest
+  IMAGE: node-topostgre
   TAG: ${{ github.sha }}
   ACK_CLUSTER_ID: c72f5dc28b6174fa08c91223b5a80051c
   ACK_DEPLOYMENT_NAME: node-topostgre
 
-  ACR_EE_REGISTRY: registry-intl.ap-southeast-5.aliyuncs.com
-  ACR_EE_INSTANCE_ID: crpi-74uzbu1udtr0rp06
-  ACR_EE_NAMESPACE: node-topostgre
-  ACR_EE_IMAGE: node-topostgre:latest
-  ACR_EE_TAG: ${{ github.sha }}
+  ACR_PE_REGISTRY: registry-intl.ap-southeast-5.aliyuncs.com
+  ACR_PE_INSTANCE_ID: crpi-74uzbu1udtr0rp06
+  ACR_PE_NAMESPACE: node-topostgre
+  ACR_PE_IMAGE: node-topostgre
+  ACR_PE_TAG: ${{ github.sha }}
 
 permissions:
   contents: read
