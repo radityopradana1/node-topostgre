@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 });
 
 app.get("/", (req, res) => {
-    res.send("Hello World! v1");
+    res.send("Hello World! v1.0");
 });
 
 app.use("/api/v1/users", usersRoutes);
