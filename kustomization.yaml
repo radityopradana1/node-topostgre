@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yaml
+
+images:
+  - name: REGISTRY/NAMESPACE/IMAGE:TAG
+    newName: acr-ee-registry.ap-southeast-5.cr.aliyuncs.com/node-topostgre/node-topostgre
+    newTag: latest

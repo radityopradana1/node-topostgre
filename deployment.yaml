@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-topostgre
+  labels:
+    app: node-topostgre
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-topostgre
+  template:
+    metadata:
+      labels:
+        app: node-topostgre
+    spec:
+      containers:
+        - name: node-topostgre
+          image: acr-ee-registry.ap-southeast-5.cr.aliyuncs.com/node-topostgre/node-topostgre:latest
+          ports:
+            - containerPort: 3030
+          env:
+            - name: DATABASE_URL
+              value: "postgres://user:password@database-host:5432/dbname"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-topostgre-service
+spec:
+  selector:
+    app: node-topostgre
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3030
+  type: LoadBalancer
