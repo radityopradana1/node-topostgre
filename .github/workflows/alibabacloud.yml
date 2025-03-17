@@ -77,20 +77,27 @@ jobs:
 
     # 2.1 (Optional) Login to ACR EE
     - uses: actions/checkout@v4
-    - name: Login to ACR EE with the AccessKey pair
+    # - name: Login to ACR EE with the AccessKey pair
+      # uses: aliyun/acr-login@v1
+      # with:
+      #   login-server: "https://${{ env.ACR_EE_REGISTRY }}"
+      #   region-id: "${{ env.REGION_ID }}"
+      #   access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
+      #   access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
+      #   instance-id: "${{ env.ACR_EE_INSTANCE_ID }}"
+
+    - name: Login to ACR EE with password
       uses: aliyun/acr-login@v1
       with:
         login-server: "https://${{ env.ACR_EE_REGISTRY }}"
-        region-id: "${{ env.REGION_ID }}"
-        access-key-id: "${{ secrets.ACCESS_KEY_ID }}"
-        access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
-        instance-id: "${{ env.ACR_EE_INSTANCE_ID }}"
+        username: "rpradana@test.aliyunid.com"
+        password: "Vaffanculo@123"
 
     # 2.2 (Optional) Build and push image ACR EE
     - name: Build and push image to ACR EE
       run: |
-        docker build -t "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:latest" .
-        docker push "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:latest"
+        docker build -t "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG" .
+        docker push "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG"
     # 2.3 (Optional) Scan image in ACR EE
     - name: Scan image in ACR EE
       uses: aliyun/acr-scan@v1
