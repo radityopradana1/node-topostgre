@@ -89,7 +89,7 @@ jobs:
     - name: Login to ACR EE with password
       uses: aliyun/acr-login@v1
       with:
-        login-server: "https://${{ env.ACR_EE_REGISTRY }}"
+        login-server: "acr-ee-registry-vpc.ap-southeast-5.cr.aliyuncs.com"
         username: "rpradana@test.aliyunid.com"
         password: "Vaffanculo@123"
 
