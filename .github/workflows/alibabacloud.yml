@@ -29,7 +29,7 @@ env:
   REGISTRY: acr-ee-registry.ap-southeast-5.cr.aliyuncs.com
   NAMESPACE: node-topostgre
   IMAGE: node-topostgre
-  TAG: ${{ github.sha }}
+  TAG: latest
   ACK_CLUSTER_ID: c72f5dc28b6174fa08c91223b5a80051c
   ACK_DEPLOYMENT_NAME: node-topostgre
 
@@ -37,7 +37,7 @@ env:
   ACR_EE_INSTANCE_ID: cri-qnbbbg32rjpzqf8g
   ACR_EE_NAMESPACE: node-topostgre
   ACR_EE_IMAGE: node-topostgre
-  ACR_EE_TAG: ${{ github.sha }}
+  ACR_EE_TAG: latest
 
 permissions:
   contents: read
