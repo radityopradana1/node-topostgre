@@ -89,15 +89,19 @@ jobs:
     - name: Login to ACR EE with password
       uses: aliyun/acr-login@v1
       with:
-        login-server: "acr-ee-registry-vpc.ap-southeast-5.cr.aliyuncs.com"
+        login-server: "acr-ee-registry.ap-southeast-5.cr.aliyuncs.com"
         username: "rpradana@test.aliyunid.com"
         password: "Vaffanculo@123"
 
     # 2.2 (Optional) Build and push image ACR EE
     - name: Build and push image to ACR EE
+      # run: |
+      #   docker build -t "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG" .
+      #   docker push "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG"
+
       run: |
-        docker build -t "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG" .
-        docker push "$ACR_EE_REGISTRY/$ACR_EE_NAMESPACE/$ACR_EE_IMAGE:$TAG"
+        docker build -t "acr-ee-registry.ap-southeast-5.cr.aliyuncs.com/node-topostgre/node-topostgre:latest" .
+        docker push "acr-ee-registry.ap-southeast-5.cr.aliyuncs.com/node-topostgre/node-topostgre:latest"
     # 2.3 (Optional) Scan image in ACR EE
     - name: Scan image in ACR EE
       uses: aliyun/acr-scan@v1
