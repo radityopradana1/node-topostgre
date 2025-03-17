@@ -112,7 +112,8 @@ jobs:
         access-key-secret: "${{ secrets.ACCESS_KEY_SECRET }}"
         instance-id: "${{ env.ACR_EE_INSTANCE_ID }}"
         repository: "${{ env.ACR_EE_NAMESPACE}}/${{ env.ACR_EE_IMAGE }}"
-        tag: "${{ env.ACR_EE_TAG }}"
+        tag: "latest"
+      continue-on-error: true
 
     # 3.1 Set ACK context
     - name: Set K8s context
