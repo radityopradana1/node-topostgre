@@ -102,6 +102,7 @@ jobs:
       run: |
         docker build -t "acr-ee-registry.ap-southeast-5.cr.aliyuncs.com/node-topostgre/node-topostgre:latest" .
         docker push "acr-ee-registry.ap-southeast-5.cr.aliyuncs.com/node-topostgre/node-topostgre:latest"
+      continue-on-error: true
     # 2.3 (Optional) Scan image in ACR EE
     - name: Scan image in ACR EE
       uses: aliyun/acr-scan@v1
